@@ -21,14 +21,15 @@ class CourseFactory extends Factory
     {
         return [
             'name' => fake()->sentence,
-            'book' =>fake()->randomDigit(0, 1),
-            'price' =>random_int(0, 1) ? random_int(1, 100) : 0.00,
+            'type' =>fake()->randomDigit(0, 1),
+            'resources' =>random_int(0, 1) ? random_int(1, 100) : 0.00,
             'year' => random_int(2010, 2021),
             'image' =>fake()->imageUrl(),
             'description' =>fake()->paragraph,
             'link' =>fake()->url(),
             'submitted_by' => User::all()->random()->id,
             'duration' => random_int(0, 2),
+            'difficulty_level' => random_int(0, 2),
             'level' => random_int(0, 2),
             'platform_id' => Platform::all()->random()->id,
 
