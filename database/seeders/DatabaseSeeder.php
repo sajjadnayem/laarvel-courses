@@ -57,8 +57,12 @@ class DatabaseSeeder extends Seeder
             $topics = ['Eloquent', 'validation', 'Authentication', 'Testing', 'Deployment', 'Routing'];
             //create topics
             foreach($topics as $item){
+                //string to slug
+                $slug = strtolower(str_replace(' ', '-', $item));
                 Topic::create([
                     'name' => $item,
+                    'slug' => $item,
+
                 ]);
             }
             $platforms = ['Laracasts', 'Youtube', 'LaraJobs', 'LaraNews', 'LaraForum', 'LaraChat'];

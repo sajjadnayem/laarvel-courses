@@ -22,7 +22,9 @@ class CourseFactory extends Factory
         return [
             'name' => fake()->sentence,
             'type' =>fake()->randomDigit(0, 1),
-            'resources' =>random_int(0, 1) ? random_int(1, 100) : 0.00,
+            'slug' => fake()->slug,
+            'resources' =>random_int(1, 50) ,
+            'price' => random_int(0, 1) ? random_int(1, 100) : 0.00,
             'year' => random_int(2010, 2021),
             'image' =>fake()->imageUrl(),
             'description' =>fake()->paragraph,
