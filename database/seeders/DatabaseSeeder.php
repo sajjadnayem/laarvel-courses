@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Author;
 use App\Models\Course;
 use App\Models\Platform;
+use App\Models\Review;
 use App\Models\Series;
 use App\Models\Topic;
 use App\Models\User;
@@ -73,12 +74,13 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
 
-            $authors = ['Sajjad Nayem', 'Rasel Ahmed', 'Rakibul Islam', 'Harun Raihan', 'Sakib Ahmed'];
-            foreach ($authors as $item){
-                Author::create([
-                    'name' => $item,
-                ]);
-            }
+//            $authors = ['Sajjad Nayem', 'Rasel Ahmed', 'Rakibul Islam', 'Harun Raihan', 'Sakib Ahmed'];
+//            foreach ($authors as $item){
+//                Author::create([
+//                    'name' => $item,
+//                ]);
+//            }
+            Author::factory(10)->create();
 
 
             //create 50 users
@@ -98,6 +100,7 @@ class DatabaseSeeder extends Seeder
                 $series = Series::all()->random(random_int(1, 5))->pluck('id')->toArray();
                 $course->series()->attach($series);
             }
+           Review::factory(100)->create();
         }
 
 
