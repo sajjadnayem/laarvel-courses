@@ -898,6 +898,12 @@ select{
 .w-1{
   width: 0.25rem;
 }
+.w-\[600px\]{
+  width: 600px;
+}
+.w-96{
+  width: 24rem;
+}
 .max-w-xl{
   max-width: 36rem;
 }
@@ -1316,6 +1322,10 @@ select{
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+.py-\[200px\]{
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 .pt-1{
   padding-top: 0.25rem;

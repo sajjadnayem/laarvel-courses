@@ -23,7 +23,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         if (env('APP_ENV') === 'local') {
-            $series = ['Laravel', 'Vue', 'React', 'Bootstrap', 'Tailwind'];
+
+            $admin = User::factory()->create([
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('password'),
+                'type' => '1',
+            ]);
+
+//            $series = ['Laravel', 'Vue', 'React', 'Bootstrap', 'Tailwind'];
             $series = [
                [
                    'name' => 'Laravel',
