@@ -24,7 +24,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/course/{slug}', [CourseController::class, 'show'])->name('course');
 
-Route::get('/topics/{slug}', [TopicController::class, 'index'])->name('topics');
+Route::get('/{archive_type}/{slug}', [HomeController::class, 'archive'])->name('archive');
+
+
 
 //todo controller pending
 Route::get('/course', [CourseController::class, 'index'])->name('courses');

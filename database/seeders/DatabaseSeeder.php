@@ -35,22 +35,27 @@ class DatabaseSeeder extends Seeder
             $series = [
                [
                    'name' => 'Laravel',
+                   'slug' => 'laravel',
                    'image' => 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_960_720.png',
                ],
                [
-                   'name' => 'Vue',
+                   'name' => 'Vue.js',
+                   'slug' => 'vue-js',
                    'image' => 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png',
                ],
                [
                    'name' => 'React',
+                   'slug' => 'react',
                    'image' => 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_960_720.png',
                ],
                [
                    'name' => 'Bootstrap',
+                     'slug' => 'bootstrap',
                    'image' => 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png',
                ],
                [
                    'name' => 'Tailwind',
+                   'slug' => 'tailwind',
                    'image' => 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_960_720.png',
                ],
 
@@ -59,6 +64,7 @@ class DatabaseSeeder extends Seeder
             foreach($series as $item){
                 Series::create([
                     'name' => $item['name'],
+                    'slug' => $item['slug'],
                     'image' => $item['image'],
                 ]);
             }

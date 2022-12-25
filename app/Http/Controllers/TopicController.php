@@ -12,11 +12,11 @@ class TopicController extends Controller
         $topic = Topic::where('slug', $slug)->first();
         $courses = $topic->courses()->paginate(12);
         return view('topic.single', [
-            'topic' => $topic,
+            'archive' => $topic,
             'courses' => $courses,
         ]);
 
-//        $courses = $topic->courses()->paginate(12);
+//        $courses = $archive->courses()->paginate(12);
 
     }
 
