@@ -68,6 +68,19 @@ class HomeController extends Controller
             }
             $title = 'Courses with Duration of ' . $item;
             $courses = Course::where('duration', $duration_db_key)->paginate(12);
+        }elseif ($archive_type === 'level'){
+            if ($slug === 'beginner'){
+                $item = 'Beginner';
+                $level_db_key = 0;
+            }elseif ($slug === 'intermediate') {
+                $item = 'Intermediate';
+                $level_db_key = 1;
+            }else{
+                $item = 'Advanced';
+                $level_db_key = 2;
+            }
+            $title = 'Courses for ' . $item . ' Level';
+            $courses = Course::where('difficulty_level', $level_db_key)->paginate(12);
         }
         return view('archive.single', [
             'title' => $title,
