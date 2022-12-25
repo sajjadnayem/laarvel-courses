@@ -60,18 +60,20 @@
                         <div>
                             <h2 class="text-lg-primary-2 text-white">Course by Series</h2>
                             <ul class="mt-5">
-                                <li class="mb-2">
-                                    <a href="{{route('archive', ['series', 'laravel'])}}" class="text-links text-gray-100 text-base before:text-gray-100">Laravel</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">PHP</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Livewire</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Vue.js</a>
-                                </li>
+                                @foreach($series as $item)
+                                    <li class="mb-2">
+                                        <a href="{{route('archive', ['series', $item->name])}}" class="text-links text-gray-100 text-base before:text-gray-100">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">PHP</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Livewire</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Vue.js</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                         <div>
@@ -105,32 +107,36 @@
                         <div>
                             <h2 class="text-lg-primary-2 text-white">Course by Platform</h2>
                             <ul class="mt-5">
-                                <li class="mb-2">
-                                    <a href="{{route('archive', ['platform', 'laracast'])}}" class="text-links text-gray-100 text-base before:text-gray-100">Laracasts</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="{{route('archive', ['platform', 'laravel-daily'])}}" class="text-links text-gray-100 text-base before:text-gray-100">Laravel Daily</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="{{route('archive', ['platform', 'codecourse'])}}" class="text-links text-gray-100 text-base before:text-gray-100">Codecourse</a>
-                                </li>
+                                @foreach($platforms as $platform)
+                                    <li class="mb-2">
+                                        <a href="{{route('archive', ['platform', $platform->name])}}" class="text-links text-gray-100 text-base before:text-gray-100">{{$platform->name}}</a>
+                                    </li>
+                                @endforeach
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="{{route('archive', ['platform', 'laravel-daily'])}}" class="text-links text-gray-100 text-base before:text-gray-100">Laravel Daily</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="{{route('archive', ['platform', 'codecourse'])}}" class="text-links text-gray-100 text-base before:text-gray-100">Codecourse</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                         <div>
                             <h2 class="text-lg-primary-2 text-white">Course by Topics</h2>
                             <ul class="mt-5">
-                                <li class="mb-2">
-                                    <a href="{{route('home')}}/topic/laravel" class="text-links text-gray-100 text-base before:text-gray-100">Eloquent</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Validation</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Refactoring</a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Testing</a>
-                                </li>
+                                @foreach($topics as $topic)
+                                    <li class="mb-2">
+                                        <a href="{{route('archive', ['topic', $topic->name])}}" class="text-links text-gray-100 text-base before:text-gray-100">{{$topic->name}}</a>
+                                    </li>
+                                @endforeach
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Validation</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Refactoring</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="mb-2">--}}
+{{--                                    <a href="#" class="text-links text-gray-100 text-base before:text-gray-100">Testing</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                     </div>

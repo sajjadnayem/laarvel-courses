@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
                ],
                [
                    'name' => 'Bootstrap',
-                     'slug' => 'bootstrap',
+                   'slug' => 'bootstrap',
                    'image' => 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png',
                ],
                [
@@ -82,9 +82,11 @@ class DatabaseSeeder extends Seeder
             }
             $platforms = ['Laracasts', 'Youtube', 'LaraJobs', 'LaraNews', 'LaraForum', 'LaraChat'];
             //create platforms
+            $slug = strtolower(str_replace(' ', '-', $item));
             foreach($platforms as $item){
                 Platform::create([
                     'name' => $item,
+                    'slug' => $item,
                 ]);
             }
 

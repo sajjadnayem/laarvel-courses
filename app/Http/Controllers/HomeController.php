@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Platform;
 use App\Models\Series;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +30,7 @@ class HomeController extends Controller
     }
     public function archive($archive_type, $slug)
     {
-        $allowed_archive_types = ['series', 'duration', 'level', 'platform', 'archive'];
+        $allowed_archive_types = ['series', 'duration', 'level', 'platform','topic'];
         if (!in_array($archive_type, $allowed_archive_types, true)){
             return abort(404);
         }
@@ -81,6 +83,21 @@ class HomeController extends Controller
             }
             $title = 'Courses for ' . $item . ' Level';
             $courses = Course::where('difficulty_level', $level_db_key)->paginate(12);
+        }elseif ($archive_type === 'platform'){
+            $item = Platform::where('slug', $slug)->first();
+            if (empty($item)){
+                return abort(404);
+            }
+            $title = 'Courses on ' . $item->name;
+            $courses = $item->courses()->paginate(12);
+
+        }elseif ($archive_type === 'topic'){
+            $item = Topic::where('slug', $slug)->first();
+            if (empty($item)){
+                return abort(404);
+            }
+            $title = 'Courses on ' . $item->name;
+            $courses = $item->courses()->paginate(12);
         }
         return view('archive.single', [
             'title' => $title,
