@@ -25,11 +25,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/course/{slug}', [CourseController::class, 'show'])->name('course');
 
 Route::get('/{archive_type}/{slug}', [HomeController::class, 'archive'])->name('archive');
+Route::get('/courses', [CourseController::class, 'courses'])->name('courses');
 
 
 
 //todo controller pending
-Route::get('/course', [CourseController::class, 'index'])->name('courses');
+//Route::get('/course', [CourseController::class, 'index'])->name('courses');
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
