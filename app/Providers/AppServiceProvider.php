@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Level;
 use App\Models\Platform;
 use App\Models\Series;
 use App\Models\Topic;
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('series', Series::latest()->take(5)->get());
             $view->with('platforms', platform::latest()->take(5)->get());
             $view->with('topics', Topic::latest()->take(5)->get());
+            $view->with('levels', Level::latest()->take(3)->get());
         });
     }
 }

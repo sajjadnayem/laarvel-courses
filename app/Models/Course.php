@@ -17,6 +17,10 @@ class Course extends Model
     {
         return $this->belongsTo((Platform::class));
     }
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
     public function topics()
     {
         return $this->belongsToMany(Topic::class, 'course_topic', 'course_id', 'topic_id');
@@ -52,4 +56,19 @@ class Course extends Model
             return 'Beginner';
         }
     }
+    public function reviewsCalculation($reviews)
+    {
+        $totalStar = 0;
+        foreach ($reviews as $review) {
+            $totalStar += $review->star;
+        }
+        if (count($reviews) !== 0) {
+            $star = $totalStar / count($reviews);
+        } else {
+            $star = 0;
+        }
+        return $star;
+    }
+
+
 }

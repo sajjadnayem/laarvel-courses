@@ -27,11 +27,12 @@ return new class extends Migration
             $table->unsignedBigInteger('submitted_by')->nullable();
             $table->unsignedBigInteger('duration')->default(0)->comment('0=1-5 hours,1=5-10 hours, 2=10+hours');
             $table->unsignedBigInteger('difficulty_level')->default(0)->comment('0=Beginner,1=Intermediate, 2=Advanced');
-            $table->unsignedBigInteger('level');
+            $table->unsignedBigInteger('level_id');
             $table->unsignedBigInteger('platform_id')->nullable();
 
             $table->foreign('submitted_by')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');
+            $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade');
 
             $table->timestamps();
         });

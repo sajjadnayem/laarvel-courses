@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Level;
 use App\Models\Platform;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -32,8 +33,10 @@ class CourseFactory extends Factory
             'submitted_by' => User::all()->random()->id,
             'duration' => random_int(0, 2),
             'difficulty_level' => random_int(0, 2),
-            'level' => random_int(0, 2),
+//            'level' => random_int(0, 2),
             'platform_id' => Platform::all()->random()->id,
+            'level_id' => Level::all()->random()->id,
+
 
         ];
     }

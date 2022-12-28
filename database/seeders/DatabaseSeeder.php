@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Author;
 use App\Models\Course;
+use App\Models\Level;
 use App\Models\Platform;
 use App\Models\Review;
 use App\Models\Series;
@@ -74,6 +75,17 @@ class DatabaseSeeder extends Seeder
                 //string to slug
                 $slug = strtolower(str_replace(' ', '-', $item));
                 Topic::create([
+                    'name' => $item,
+                    'slug' => $item,
+
+                ]);
+            }
+            //level check
+            $levels = ['Beginner', 'Intermediate', 'Advanced'];
+            foreach($levels as $item){
+                //string to slug
+                $slug = strtolower(str_replace(' ', '-', $item));
+                Level::create([
                     'name' => $item,
                     'slug' => $item,
 
